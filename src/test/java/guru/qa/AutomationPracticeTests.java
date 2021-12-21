@@ -3,9 +3,8 @@ package guru.qa;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class AutomationPracticeTests {
@@ -19,7 +18,7 @@ public class AutomationPracticeTests {
         $("#firstName").setValue("John");
         $("#lastName").setValue("Smith");
         $("#userEmail").setValue("john.smith@mail.com");
-        $x("//label[contains(text(),'Male')]").click();
+        $(byText("Male")).click();
         $("#userNumber").setValue("8912345678");
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("April");
@@ -29,12 +28,12 @@ public class AutomationPracticeTests {
         $("#subjectsInput").setValue("Ma").pressEnter();
         $x("//label[contains(text(),'Sports')]").click();
         $x("//label[contains(text(),'Reading')]").click();
-        $("#uploadPicture").uploadFile(new File("src/kitten.png"));
+        $("#uploadPicture").uploadFromClasspath("kitten.png");
         $("#currentAddress").setValue("Test Address");
         $("#state").scrollTo();
-        $x("//*[@id='state']/div/div[2]/div").click();
+        $("#state").click();
         $x("//div[text()='Uttar Pradesh']").click();
-        $x("//*[@id='city']/div/div[2]/div").click();
+        $("#city").click();
         $x("//div[text()='Agra']").click();
 
         $("#submit").click();
