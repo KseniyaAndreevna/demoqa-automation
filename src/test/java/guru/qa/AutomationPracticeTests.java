@@ -15,7 +15,7 @@ public class AutomationPracticeTests {
 
     @Test
     void automationPracticeTest() {
-        $("#firstName").setValue("John");
+        $("#firstName").setValue("Johny");
         $("#lastName").setValue("Smith");
         $("#userEmail").setValue("john.smith@mail.com");
         $(byText("Male")).click();
